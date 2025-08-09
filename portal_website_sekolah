@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sekolah - Retro 60s-70s</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous:wght@400&family=Nunito:wght@300;400;600;700;800&family=Fredoka+One:wght@400&display=swap');
+        
+        * {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .retro-title {
+            font-family: 'Righteous', cursive;
+            letter-spacing: 2px;
+        }
+        
+        .groovy-title {
+            font-family: 'Fredoka One', cursive;
+        }
+        
+        /* Retro 60s-70s Color Palette */
+        :root {
+            --retro-orange: #FF6B35;
+            --retro-yellow: #F7931E;
+            --retro-pink: #FF69B4;
+            --retro-purple: #9B59B6;
+            --retro-teal: #1ABC9C;
+            --retro-brown: #8B4513;
+            --retro-cream: #FFF8DC;
+            --retro-olive: #808000;
+        }
+        
+        .retro-bg {
+            background: linear-gradient(45deg, 
+                #FF6B35 0%, 
+                #F7931E 25%, 
+                #FF69B4 50%, 
+                #9B59B6 75%, 
+                #1ABC9C 100%);
+            background-size: 400% 400%;
+            animation: groovyGradient 8s ease infinite;
+        }
+        
+        @keyframes groovyGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Retro Patterns */
+        .retro-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #FF69B4 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #F7931E 2px, transparent 2px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+        }
+        
+        .psychedelic-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 220, 0.95) 0%, 
+                rgba(255, 248, 220, 0.9) 100%);
+            border: 4px solid;
+            border-image: linear-gradient(45deg, #FF6B35, #F7931E, #FF69B4, #9B59B6) 1;
+            box-shadow: 
+                0 0 0 4px rgba(255, 107, 53, 0.3),
+                0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .psychedelic-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 107, 53, 0.05) 10px,
+                rgba(255, 107, 53, 0.05) 20px
+            );
+            animation: patternMove 20s linear infinite;
+        }
+        
+        @keyframes patternMove {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+        
+        .groovy-button {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            border: 3px solid #8B4513;
+            box-shadow: 
+                0 6px 0 #8B4513,
+                0 12px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(0);
+            transition: all 0.2s ease;
+        }
+        
+        .groovy-button:hover {
+            transform: translateY(3px);
+            box-shadow: 
+                0 3px 0 #8B4513,
+                0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .groovy-button:active {
+            transform: translateY(6px);
+            box-shadow: 
+                0 0 0 #8B4513,
+                0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Retro Shapes */
+        .retro-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.15;
+            animation: floatGroovy 15s infinite ease-in-out;
+        }
+        
+        .circle-retro {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #FF69B4, #9B59B6);
+            border-radius: 50%;
+            top: 15%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+        
+        .square-retro {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #F7931E, #FF6B35);
+            transform: rotate(45deg);
+            top: 60%;
+            left: 5%;
+            animation-delay: 5s;
+        }
+        
+        .triangle-retro {
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 100px solid #1ABC9C;
+            top: 30%;
+            right: 20%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes floatGroovy {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(90deg); }
+            50% { transform: translateY(-60px) rotate(180deg); }
+            75% { transform: translateY(-30px) rotate(270deg); }
+        }
+        
+        .retro-input {
+            background: rgba(255, 248, 220, 0.9);
+            border: 3px solid #8B4513;
+            border-radius: 25px;
+            color: #8B4513;
+            font-weight: 600;
+        }
+        
+        .retro-input:focus {
+            outline: none;
+            border-color: #FF6B35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+        }
+        
+        .retro-input::placeholder {
+            color: #8B4513;
+            opacity: 0.7;
+        }
+        
+        .menu-card-retro {
+            background: linear-gradient(135deg, 
+                rgba(255, 248, 220, 0.95) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+            border: 3px solid;
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-card-retro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 107, 53, 0.2), 
+                transparent);
+            transition: left 0.5s;
+        }
+        
+        .menu-card-retro:hover::before {
+            left: 100%;
+        }
+        
+        .menu-card-retro:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .retro-icon {
+            background: linear-gradient(45deg, var(--color-1), var(--color-2));
+            border: 3px solid #8B4513;
+            box-shadow: 0 4px 0 #8B4513;
+        }
+        
+        .welcome-banner-retro {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FF69B4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-banner-retro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 3px, transparent 3px),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+                radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.15) 4px, transparent 4px),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.25) 2px, transparent 2px),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            background-size: 60px 60px, 40px 40px, 80px 80px, 30px 30px, 200px 200px;
+            animation: groovyWallpaper 15s linear infinite;
+        }
+        
+        .welcome-banner-retro::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(255, 255, 255, 0.05) 20px,
+                    rgba(255, 255, 255, 0.05) 40px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(255, 255, 255, 0.03) 30px,
+                    rgba(255, 255, 255, 0.03) 60px
+                );
+            animation: diagonalFlow 20s linear infinite;
+        }
+        
+        @keyframes groovyWallpaper {
+            0% { 
+                background-position: 0 0, 20px 20px, 0 0, 15px 15px, 0 0;
+                transform: rotate(0deg) scale(1);
+            }
+            25% { 
+                background-position: 15px 15px, 35px 35px, 20px 20px, 30px 30px, 50px 50px;
+                transform: rotate(1deg) scale(1.02);
+            }
+            50% { 
+                background-position: 30px 30px, 50px 50px, 40px 40px, 45px 45px, 100px 100px;
+                transform: rotate(0deg) scale(1);
+            }
+            75% { 
+                background-position: 45px 45px, 65px 65px, 60px 60px, 60px 60px, 150px 150px;
+                transform: rotate(-1deg) scale(1.02);
+            }
+            100% { 
+                background-position: 60px 60px, 80px 80px, 80px 80px, 75px 75px, 200px 200px;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+        
+        @keyframes diagonalFlow {
+            0% { transform: translateX(-100px) translateY(-100px) rotate(0deg); }
+            100% { transform: translateX(100px) translateY(100px) rotate(360deg); }
+        }
+        
+        @keyframes patternFloat {
+            0% { background-position: 0 0, 20px 20px; }
+            100% { background-position: 40px 40px, 60px 60px; }
+        }
+        
+        .identity-card-retro {
+            background: linear-gradient(135deg, 
+                rgba(255, 248, 220, 0.98) 0%, 
+                rgba(255, 255, 255, 0.95) 100%);
+            border: 4px solid #8B4513;
+            border-radius: 30px;
+            position: relative;
+        }
+        
+        .identity-card-retro::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #FF69B4, #9B59B6);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        
+        .retro-badge {
+            background: linear-gradient(45deg, var(--badge-color-1), var(--badge-color-2));
+            border: 2px solid #8B4513;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .retro-badge::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            height: 50%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .loading-groovy {
+            border: 4px solid rgba(139, 69, 19, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #FF6B35;
+            width: 24px;
+            height: 24px;
+            animation: spinGroovy 1s linear infinite;
+        }
+        
+        @keyframes spinGroovy {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .text-retro-shadow {
+            text-shadow: 3px 3px 0 #8B4513, 6px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-padding {
+                padding: 1rem;
+            }
+            
+            .mobile-text {
+                font-size: 0.875rem;
+            }
+            
+            .mobile-title {
+                font-size: 1.25rem;
+            }
+            
+            .retro-shapes {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="retro-bg min-h-screen retro-pattern">
+    <!-- Retro Shapes Background -->
+    <div class="retro-shapes">
+        <div class="shape circle-retro"></div>
+        <div class="shape square-retro"></div>
+        <div class="shape triangle-retro"></div>
+    </div>
+    
+    <!-- Login Page -->
+    <div id="loginPage" class="min-h-screen flex items-center justify-center mobile-padding relative z-10">
+        <div class="psychedelic-card rounded-3xl p-6 sm:p-8 w-full max-w-lg mx-4 relative z-10">
+            <!-- Logo Section -->
+            <div class="text-center mb-8 relative z-10">
+                <div class="relative inline-block">
+                    <img id="schoolLogo" src="" alt="Logo Sekolah" class="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full border-4 border-solid" style="border-color: #8B4513; display: none; box-shadow: 0 6px 0 #8B4513;">
+                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full border-2 border-solid" style="border-color: #8B4513;"></div>
+                </div>
+                <h1 class="retro-title text-3xl sm:text-4xl font-bold mb-2 text-retro-shadow" style="color: #8B4513;">DASHBOARD</h1>
+                <p class="font-bold text-lg mb-2" style="color: #FF6B35;">Selamat Datang di</p>
+                <p id="schoolName" class="font-bold text-xl sm:text-2xl mb-2" style="color: #8B4513;"></p>
+                <div class="w-24 h-2 mx-auto mt-3 rounded-full" style="background: linear-gradient(45deg, #FF6B35, #F7931E, #FF69B4);"></div>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="space-y-6 relative z-10">
+                <!-- Role Selection -->
+                <div>
+                    <label class="block font-bold mb-4 text-center text-lg" style="color: #8B4513;">
+                        <i class="fas fa-user-friends mr-2"></i>Pilih Role Anda
+                    </label>
+                    <div class="grid grid-cols-2 gap-4">
+                        <label class="group cursor-pointer">
+                            <input type="radio" name="role" value="siswa" class="sr-only" required>
+                            <div class="flex flex-col items-center justify-center p-4 border-3 rounded-3xl transition-all duration-300 group-hover:scale-105" style="border-color: #8B4513; background: rgba(255, 248, 220, 0.8);">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-2 border-2" style="background: linear-gradient(45deg, #FF69B4, #9B59B6); border-color: #8B4513;">
+                                    <i class="fas fa-graduation-cap text-white text-xl"></i>
+                                </div>
+                                <span class="font-bold" style="color: #8B4513;">Siswa</span>
+                            </div>
+                        </label>
+                        <label class="group cursor-pointer">
+                            <input type="radio" name="role" value="guru" class="sr-only" required>
+                            <div class="flex flex-col items-center justify-center p-4 border-3 rounded-3xl transition-all duration-300 group-hover:scale-105" style="border-color: #8B4513; background: rgba(255, 248, 220, 0.8);">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-2 border-2" style="background: linear-gradient(45deg, #1ABC9C, #F7931E); border-color: #8B4513;">
+                                    <i class="fas fa-chalkboard-teacher text-white text-xl"></i>
+                                </div>
+                                <span class="font-bold" style="color: #8B4513;">Guru</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Username -->
+                <div>
+                    <label class="block font-bold mb-2 text-lg" style="color: #8B4513;">
+                        <i class="fas fa-user mr-2"></i>NISN (Username)
+                    </label>
+                    <input type="text" id="username" required class="retro-input w-full p-4 text-lg font-semibold" placeholder="Masukkan NISN">
+                </div>
+                
+                <!-- Password -->
+                <div>
+                    <label class="block font-bold mb-2 text-lg" style="color: #8B4513;">
+                        <i class="fas fa-lock mr-2"></i>Password
+                    </label>
+                    <input type="password" id="password" required class="retro-input w-full p-4 text-lg font-semibold" placeholder="Masukkan password">
+                </div>
+                
+                <!-- Login Button -->
+                <button type="submit" id="loginBtn" class="groovy-button w-full py-4 px-6 rounded-3xl text-white font-bold text-xl">
+                    <span id="loginText">
+                        <i class="fas fa-rocket mr-2"></i>MASUK SEKARANG
+                    </span>
+                    <span id="loginLoading" class="loading-groovy inline-block" style="display: none;"></span>
+                </button>
+            </form>
+            
+            <div id="errorMessage" class="mt-4 p-4 rounded-3xl border-3 hidden" style="background: rgba(255, 107, 53, 0.2); border-color: #FF6B35; color: #8B4513;">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <span id="errorText" class="font-bold"></span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Teacher Dashboard -->
+    <div id="teacherDashboard" class="min-h-screen mobile-padding relative z-10" style="display: none;">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner-retro rounded-3xl p-6 sm:p-8 mb-6 relative overflow-hidden border-4" style="border-color: #8B4513;">
+            <div class="flex flex-col sm:flex-row items-center justify-between relative z-10">
+                <div class="flex flex-col sm:flex-row items-center mb-4 sm:mb-0">
+                    <img id="teacherDashboardLogo" src="" alt="Logo" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 mb-4 sm:mb-0 sm:mr-6" style="border-color: #8B4513; box-shadow: 0 6px 0 #8B4513;">
+                    <div class="text-center sm:text-left">
+                        <h1 class="groovy-title text-2xl sm:text-3xl font-bold text-white mb-2 text-retro-shadow">
+                            <i class="fas fa-chalkboard-teacher mr-2"></i>Dashboard Guru
+                        </h1>
+                        <p id="teacherName" class="text-white text-lg sm:text-xl font-bold text-retro-shadow"></p>
+                        <div class="w-20 h-2 rounded-full mx-auto sm:mx-0 mt-2" style="background: linear-gradient(45deg, #FFD700, #FFA500);"></div>
+                    </div>
+                </div>
+                <button onclick="logout()" class="groovy-button px-6 py-3 rounded-3xl text-white font-bold transition-all duration-300" style="background: linear-gradient(45deg, #FF6B35, #FF69B4);">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+                </button>
+            </div>
+        </div>
+        
+        <!-- Teacher Identity Card -->
+        <div class="identity-card-retro p-6 sm:p-8 mb-6 shadow-2xl">
+            <div class="flex items-center mb-6">
+                <div class="retro-icon w-14 h-14 rounded-3xl flex items-center justify-center mr-4" style="--color-1: #1ABC9C; --color-2: #F7931E;">
+                    <i class="fas fa-user-tie text-white text-2xl"></i>
+                </div>
+                <h2 class="groovy-title text-xl sm:text-2xl font-bold" style="color: #8B4513;">Identitas Guru</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #FFE4E1; --badge-color-2: #FFF8DC;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-user mr-2" style="color: #FF6B35;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">USER</span>
+                    </div>
+                    <span id="teacherUser" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #E0FFE0; --badge-color-2: #F0FFF0;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-id-badge mr-2" style="color: #1ABC9C;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">NAMA</span>
+                    </div>
+                    <span id="teacherFullName" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #E6E6FA; --badge-color-2: #F0F8FF;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-briefcase mr-2" style="color: #9B59B6;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">JABATAN</span>
+                    </div>
+                    <span id="teacherJabatan" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #FFEFD5; --badge-color-2: #FFF8DC;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-book mr-2" style="color: #F7931E;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">MAPEL</span>
+                    </div>
+                    <span id="teacherMapel" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl sm:col-span-2" style="--badge-color-1: #FFE4E1; --badge-color-2: #FFF0F5;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-users mr-2" style="color: #FF69B4;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">WALI KELAS</span>
+                    </div>
+                    <span id="teacherWaliKelas" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Teacher Menu Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #FF6B35;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #FF6B35; --color-2: #FF69B4;">
+                    <i class="fas fa-bullhorn text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Pengumuman</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #1ABC9C;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #1ABC9C; --color-2: #F7931E;">
+                    <i class="fas fa-calendar-alt text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Jadwal</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #9B59B6;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #9B59B6; --color-2: #FF69B4;">
+                    <i class="fas fa-edit text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Input Jurnal</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #FFD700;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #FFD700; --color-2: #FFA500;">
+                    <i class="fas fa-check-circle text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Presensi</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #1ABC9C;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #1ABC9C; --color-2: #9B59B6;">
+                    <i class="fas fa-star text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Nilai</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #F7931E;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #F7931E; --color-2: #FF6B35;">
+                    <i class="fas fa-id-badge text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">ID Card</h3>
+            </div>
+        </div>
+        
+        <!-- Spacer for mobile -->
+        <div class="h-20"></div>
+    </div>
+
+    <!-- Student Dashboard -->
+    <div id="studentDashboard" class="min-h-screen mobile-padding relative z-10" style="display: none;">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner-retro rounded-3xl p-6 sm:p-8 mb-6 relative overflow-hidden border-4" style="border-color: #8B4513;">
+            <div class="flex flex-col sm:flex-row items-center justify-between relative z-10">
+                <div class="flex flex-col sm:flex-row items-center mb-4 sm:mb-0">
+                    <img id="dashboardLogo" src="" alt="Logo" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 mb-4 sm:mb-0 sm:mr-6" style="border-color: #8B4513; box-shadow: 0 6px 0 #8B4513;">
+                    <div class="text-center sm:text-left">
+                        <h1 class="groovy-title text-2xl sm:text-3xl font-bold text-white mb-2 text-retro-shadow">
+                            <i class="fas fa-hand-peace mr-2"></i>Selamat Datang
+                        </h1>
+                        <p id="studentName" class="text-white text-lg sm:text-xl font-bold text-retro-shadow"></p>
+                        <div class="w-20 h-2 rounded-full mx-auto sm:mx-0 mt-2" style="background: linear-gradient(45deg, #FFD700, #FFA500);"></div>
+                    </div>
+                </div>
+                <button onclick="logout()" class="groovy-button px-6 py-3 rounded-3xl text-white font-bold transition-all duration-300" style="background: linear-gradient(45deg, #FF6B35, #FF69B4);">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+                </button>
+            </div>
+        </div>
+        
+        <!-- Student Identity Card -->
+        <div class="identity-card-retro p-6 sm:p-8 mb-6 shadow-2xl">
+            <div class="flex items-center mb-6">
+                <div class="retro-icon w-14 h-14 rounded-3xl flex items-center justify-center mr-4" style="--color-1: #FF69B4; --color-2: #9B59B6;">
+                    <i class="fas fa-id-card text-white text-2xl"></i>
+                </div>
+                <h2 class="groovy-title text-xl sm:text-2xl font-bold" style="color: #8B4513;">Identitas Siswa</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #FFE4E1; --badge-color-2: #FFF8DC;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-hashtag mr-2" style="color: #FF6B35;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">NISN</span>
+                    </div>
+                    <span id="studentNISN" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #E0FFE0; --badge-color-2: #F0FFF0;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-user mr-2" style="color: #1ABC9C;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">Nama Lengkap</span>
+                    </div>
+                    <span id="studentFullName" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #E6E6FA; --badge-color-2: #F0F8FF;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-school mr-2" style="color: #9B59B6;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">Kelas</span>
+                    </div>
+                    <span id="studentClass" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #FFEFD5; --badge-color-2: #FFF8DC;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-user-tie mr-2" style="color: #F7931E;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">Wali Kelas</span>
+                    </div>
+                    <span id="studentWaliKelas" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #FFE4E1; --badge-color-2: #FFF0F5;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-calendar mr-2" style="color: #FF69B4;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">Tahun Ajaran</span>
+                    </div>
+                    <span id="studentTahunAjaran" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+                
+                <div class="retro-badge p-4 rounded-3xl" style="--badge-color-1: #E0FFFF; --badge-color-2: #F0FFFF;">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-pray mr-2" style="color: #1ABC9C;"></i>
+                        <span class="font-bold mobile-text" style="color: #8B4513;">Agama</span>
+                    </div>
+                    <span id="studentAgama" class="font-bold text-lg" style="color: #8B4513;"></span>
+                </div>
+            </div>
+            
+            <!-- Photo and QR Code Section -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <div class="text-center">
+                    <img id="studentPhoto" src="" alt="Foto Siswa" class="w-32 h-40 sm:w-40 sm:h-48 object-cover rounded-3xl border-4 shadow-xl mb-3" style="border-color: #8B4513; background: linear-gradient(135deg, #FFF8DC, #FFFFFF);">
+                    <p class="text-sm font-bold" style="color: #8B4513;">
+                        <i class="fas fa-camera mr-1"></i>Foto Siswa
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="p-4 rounded-3xl border-4 shadow-xl" style="background: linear-gradient(135deg, #FFF8DC, #FFFFFF); border-color: #8B4513;">
+                        <img id="qrCode" class="rounded-2xl w-36 h-36 mx-auto" alt="QR Code" style="background: #FFF8DC;">
+                    </div>
+                    <p class="text-sm font-bold mt-3" style="color: #8B4513;">
+                        <i class="fas fa-qrcode mr-1"></i>QR Code
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #FF6B35;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #FF6B35; --color-2: #FF69B4;">
+                    <i class="fas fa-bullhorn text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Pengumuman</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #1ABC9C;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #1ABC9C; --color-2: #F7931E;">
+                    <i class="fas fa-calendar-alt text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Jadwal</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #9B59B6;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #9B59B6; --color-2: #FF69B4;">
+                    <i class="fas fa-photo-video text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Media</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #F7931E;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #F7931E; --color-2: #FF6B35;">
+                    <i class="fas fa-money-bill-wave text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">SPP</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #FFD700;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #FFD700; --color-2: #FFA500;">
+                    <i class="fas fa-check-circle text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Presensi</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #1ABC9C;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #1ABC9C; --color-2: #9B59B6;">
+                    <i class="fas fa-file-alt text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Ujian</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #FF69B4;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #FF69B4; --color-2: #9B59B6;">
+                    <i class="fas fa-chart-bar text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">Raport</h3>
+            </div>
+            
+            <div class="menu-card-retro p-4 sm:p-6 text-center cursor-pointer shadow-xl" style="border-color: #F7931E;">
+                <div class="retro-icon w-12 h-12 sm:w-16 sm:h-16 rounded-3xl flex items-center justify-center mx-auto mb-3 sm:mb-4" style="--color-1: #F7931E; --color-2: #FF6B35;">
+                    <i class="fas fa-id-badge text-white text-lg sm:text-2xl"></i>
+                </div>
+                <h3 class="font-bold mobile-text sm:text-base" style="color: #8B4513;">ID Card</h3>
+            </div>
+        </div>
+        
+        <!-- Spacer for mobile -->
+        <div class="h-20"></div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="text-center py-6 relative z-10">
+        <div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+            <p class="font-bold mobile-text text-retro-shadow" style="color: #FFF8DC;">©2025 Developer: ARI WIJAYA</p>
+            <div class="flex items-center">
+                <i class="fab fa-youtube text-red-400 mr-2 text-xl"></i>
+                <a href="https://youtube.com/@kitabisaberkarya" target="_blank" class="hover:underline font-bold mobile-text text-retro-shadow" style="color: #FFF8DC;">
+                    KITA BISA BERKARYA
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // API URLs - Using your deployed Google Apps Script
+        const BASE_URL = 'https://script.google.com/macros/s/AKfycby8OrKO12yB0YHiVbUH1xQEKIaxyfwHqz8qOMxSRBlAVwmuZibAHVC_RiA6wT2W6T7C/exec';
+        const INFO_SEKOLAH_URL = BASE_URL + '?sheet=INFO_SEKOLAH';
+        const SISWA_URL = BASE_URL + '?sheet=DATA_SISWA';
+        const GURU_URL = BASE_URL + '?sheet=DATA_GURU';
+        
+        let currentUser = null;
+        let schoolInfo = null;
+        
+        // Load school info (logo and name)
+        async function loadSchoolInfo() {
+            try {
+                console.log('Loading school info from:', INFO_SEKOLAH_URL);
+                const response = await fetch(INFO_SEKOLAH_URL);
+                const csvText = await response.text();
+                console.log('School info CSV response:', csvText); // Debug log
+                
+                const data = parseCSV(csvText);
+                console.log('Parsed school data:', data); // Debug log
+                
+                if (data.length > 0) {
+                    const schoolData = data[0]; // First row of data
+                    console.log('School data row:', schoolData); // Debug log
+                    
+                    // Column mapping: A=NAMA_SEKOLAH, B=ALAMAT_SEKOLAH, C=TELEPON_SEKOLAH, D=LOGO_SEKOLAH
+                    schoolInfo = {
+                        name: schoolData[0] || 'Sekolah',
+                        alamat: schoolData[1] || '',
+                        telepon: schoolData[2] || '',
+                        logo: schoolData[3] || ''
+                    };
+                    
+                    console.log('School info object:', schoolInfo); // Debug log
+                    
+                    // Set school name
+                    document.getElementById('schoolName').textContent = schoolInfo.name;
+                    
+                    // Set logos with better error handling
+                    if (schoolInfo.logo && schoolInfo.logo.trim() && schoolInfo.logo !== '') {
+                        const logoImg = document.getElementById('schoolLogo');
+                        const dashboardLogoImg = document.getElementById('dashboardLogo');
+                        
+                        console.log('Setting logo URL:', schoolInfo.logo);
+                        
+                        logoImg.onload = function() {
+                            console.log('Logo loaded successfully');
+                            logoImg.style.display = 'block';
+                        };
+                        logoImg.onerror = function() {
+                            console.error('Failed to load logo:', schoolInfo.logo);
+                            logoImg.style.display = 'none';
+                        };
+                        
+                        logoImg.src = schoolInfo.logo;
+                        dashboardLogoImg.src = schoolInfo.logo;
+                    } else {
+                        console.log('No valid logo URL found:', schoolInfo.logo);
+                    }
+                } else {
+                    console.log('No school data found');
+                }
+            } catch (error) {
+                console.error('Error loading school info:', error);
+            }
+        }
+        
+        // Parse CSV data with better handling
+        function parseCSV(csvText) {
+            const rows = csvText.split('\n');
+            const data = [];
+            
+            // Skip header row (index 0) and process data rows
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i].trim();
+                if (row) {
+                    // Handle CSV parsing with proper quote handling
+                    const cols = [];
+                    let current = '';
+                    let inQuotes = false;
+                    
+                    for (let j = 0; j < row.length; j++) {
+                        const char = row[j];
+                        if (char === '"') {
+                            inQuotes = !inQuotes;
+                        } else if (char === ',' && !inQuotes) {
+                            cols.push(current.trim());
+                            current = '';
+                        } else {
+                            current += char;
+                        }
+                    }
+                    cols.push(current.trim()); // Add the last column
+                    
+                    // Clean up quotes from values
+                    const cleanCols = cols.map(col => col.replace(/^"|"$/g, '').trim());
+                    data.push(cleanCols);
+                }
+            }
+            return data;
+        }
+        
+        // Login function - Updated to match your database structure
+        async function login(username, password, role) {
+            try {
+                const url = role === 'siswa' ? SISWA_URL : GURU_URL;
+                console.log('Fetching data from:', url);
+                
+                const response = await fetch(url);
+                const csvText = await response.text();
+                console.log('CSV response:', csvText); // Debug log
+                
+                const data = parseCSV(csvText);
+                console.log('Parsed data:', data); // Debug log
+                
+                // Find user based on your database structure
+                let user;
+                if (role === 'siswa') {
+                    // For students: NISN in column B (index 1), PASSWORD in column C (index 2)
+                    console.log('Looking for student with NISN:', username, 'and password:', password);
+                    user = data.find(row => {
+                        console.log('Checking row:', row, 'NISN:', row[1], 'Password:', row[2]);
+                        return String(row[1]).trim() === String(username).trim() && 
+                               String(row[2]).trim() === String(password).trim();
+                    });
+                } else {
+                    // For teachers: USERNAME_GURU in column B (index 1), PASSWORD_GURU in column C (index 2)
+                    console.log('Looking for teacher with username:', username, 'and password:', password);
+                    user = data.find(row => {
+                        console.log('Checking teacher row:', row, 'Username:', row[1], 'Password:', row[2]);
+                        return String(row[1]).trim() === String(username).trim() && 
+                               String(row[2]).trim() === String(password).trim();
+                    });
+                }
+                
+                console.log('Found user:', user); // Debug log
+                
+                if (user) {
+                    currentUser = {
+                        role: role,
+                        username: username,
+                        data: user
+                    };
+                    
+                    if (role === 'siswa') {
+                        showStudentDashboard(user);
+                    } else {
+                        showTeacherDashboard(user);
+                    }
+                    return true;
+                } else {
+                    console.log('User not found');
+                    return false;
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                return false;
+            }
+        }
+        
+        // Generate QR Code from NISN using Google Charts API (Same as Google Sheets formula)
+        function generateQRCodeFromNISN(nisn) {
+            console.log('=== GENERATE QR CODE FUNCTION ===');
+            console.log('Input NISN:', nisn);
+            
+            const qrImg = document.getElementById('qrCode');
+            if (!qrImg) {
+                console.error('QR Code image element not found!');
+                return;
+            }
+            
+            console.log('QR Image element found:', qrImg);
+            
+            // Validate NISN
+            if (!nisn || nisn === 'N/A' || String(nisn).trim() === '') {
+                console.log('Invalid NISN, showing placeholder');
+                qrImg.src = 'data:image/svg+xml;base64,' + btoa(`
+                    <svg width="144" height="144" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="144" height="144" fill="#FFF8DC" stroke="#8B4513" stroke-width="2"/>
+                        <text x="72" y="60" text-anchor="middle" fill="#8B4513" font-size="12" font-family="Arial" font-weight="bold">
+                            No NISN
+                        </text>
+                        <text x="72" y="80" text-anchor="middle" fill="#8B4513" font-size="10" font-family="Arial">
+                            Available
+                        </text>
+                    </svg>
+                `);
+                return;
+            }
+            
+            const cleanNISN = String(nisn).trim();
+            console.log('Clean NISN for QR:', cleanNISN);
+            
+            // Show loading state
+            qrImg.src = 'data:image/svg+xml;base64,' + btoa(`
+                <svg width="144" height="144" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="144" height="144" fill="#FFF8DC" stroke="#8B4513" stroke-width="2"/>
+                    <circle cx="72" cy="60" r="8" fill="none" stroke="#8B4513" stroke-width="2">
+                        <animate attributeName="stroke-dasharray" values="0 50;25 25;0 50" dur="1s" repeatCount="indefinite"/>
+                    </circle>
+                    <text x="72" y="85" text-anchor="middle" fill="#8B4513" font-size="10" font-family="Arial">
+                        Generating QR...
+                    </text>
+                    <text x="72" y="100" text-anchor="middle" fill="#8B4513" font-size="8" font-family="Arial">
+                        NISN: ${cleanNISN}
+                    </text>
+                </svg>
+            `);
+            
+            try {
+                // Use Google Charts API (same as Google Sheets IMAGE formula)
+                // Equivalent to: =IMAGE("https://image-charts.com/chart?chs=150x150&cht=qr&chl="&ENCODEURL(B2))
+                const encodedNISN = encodeURIComponent(cleanNISN);
+                const qrUrl = `https://image-charts.com/chart?chs=144x144&cht=qr&chl=${encodedNISN}&choe=UTF-8`;
+                
+                console.log('Generated QR URL:', qrUrl);
+                
+                // Test if image loads successfully
+                const testImg = new Image();
+                testImg.crossOrigin = 'anonymous';
+                
+                testImg.onload = function() {
+                    console.log('✅ QR Code generated successfully using Google Charts API!');
+                    qrImg.src = qrUrl;
+                    
+                    qrImg.onload = function() {
+                        console.log('✅ QR Code image loaded successfully in DOM');
+                    };
+                };
+                
+                testImg.onerror = function() {
+                    console.error('❌ Failed to generate QR Code using Google Charts API');
+                    // Fallback to alternative QR service
+                    const fallbackUrl = `https://api.qrserver.com/v1/create-qr-code/?size=144x144&data=${encodedNISN}&bgcolor=FFF8DC&color=8B4513`;
+                    console.log('Trying fallback QR service:', fallbackUrl);
+                    
+                    const fallbackImg = new Image();
+                    fallbackImg.onload = function() {
+                        console.log('✅ Fallback QR Code service worked!');
+                        qrImg.src = fallbackUrl;
+                    };
+                    
+                    fallbackImg.onerror = function() {
+                        console.error('❌ All QR services failed');
+                        qrImg.src = 'data:image/svg+xml;base64,' + btoa(`
+                            <svg width="144" height="144" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="144" height="144" fill="#FFF8DC" stroke="#8B4513" stroke-width="2"/>
+                                <text x="72" y="50" text-anchor="middle" fill="#8B4513" font-size="10" font-family="Arial">
+                                    QR Service
+                                </text>
+                                <text x="72" y="65" text-anchor="middle" fill="#8B4513" font-size="10" font-family="Arial">
+                                    Unavailable
+                                </text>
+                                <text x="72" y="85" text-anchor="middle" fill="#8B4513" font-size="8" font-family="Arial">
+                                    NISN: ${cleanNISN}
+                                </text>
+                                <text x="72" y="100" text-anchor="middle" fill="#8B4513" font-size="6" font-family="Arial">
+                                    Check connection
+                                </text>
+                            </svg>
+                        `);
+                    };
+                    
+                    fallbackImg.src = fallbackUrl;
+                };
+                
+                testImg.src = qrUrl;
+                
+            } catch (error) {
+                console.error('QR Code generation exception:', error);
+                qrImg.src = 'data:image/svg+xml;base64,' + btoa(`
+                    <svg width="144" height="144" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="144" height="144" fill="#FFF8DC" stroke="#8B4513" stroke-width="2"/>
+                        <text x="72" y="60" text-anchor="middle" fill="#8B4513" font-size="10" font-family="Arial">
+                            Exception Error
+                        </text>
+                        <text x="72" y="80" text-anchor="middle" fill="#8B4513" font-size="8" font-family="Arial">
+                            NISN: ${cleanNISN}
+                        </text>
+                    </svg>
+                `);
+            }
+        }
+        
+        // Show teacher dashboard
+        function showTeacherDashboard(userData) {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('teacherDashboard').style.display = 'block';
+            
+            // Fill teacher data based on your database structure
+            // A=ID_GURU, B=USERNAME_GURU, C=PASSWORD_GURU, D=NAMA_GURU, 
+            // E=JABATAN_GURU, F=MAPEL_GURU, G=WALI_KELAS_GURU
+            
+            const username = userData[1] || 'N/A';  // Column B (USERNAME_GURU)
+            const namaGuru = userData[3] || userData[1] || 'N/A';  // Column D (NAMA_GURU)
+            
+            console.log('Teacher data:', userData); // Debug log
+            console.log('Username:', username, 'Nama:', namaGuru); // Debug log
+            console.log('Jabatan (E):', userData[4], 'Mapel (F):', userData[5], 'Wali Kelas (G):', userData[6]); // Debug log
+            
+            document.getElementById('teacherName').textContent = namaGuru;
+            document.getElementById('teacherUser').textContent = username;
+            document.getElementById('teacherFullName').textContent = namaGuru;
+            document.getElementById('teacherJabatan').textContent = userData[4] || 'N/A';  // Column E (JABATAN_GURU)
+            document.getElementById('teacherMapel').textContent = userData[5] || 'N/A';  // Column F (MAPEL_GURU)
+            document.getElementById('teacherWaliKelas').textContent = userData[6] || 'N/A';  // Column G (WALI_KELAS_GURU)
+            
+            // Set teacher dashboard logo
+            const teacherDashboardLogo = document.getElementById('teacherDashboardLogo');
+            if (schoolInfo && schoolInfo.logo) {
+                teacherDashboardLogo.src = schoolInfo.logo;
+            }
+        }
+        
+        // Show student dashboard
+        function showStudentDashboard(userData) {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('studentDashboard').style.display = 'block';
+            
+            // Fill student data based on your exact database structure
+            // A=ID_SISWA, B=NISN, C=PASSWORD, D=NAMA_LENGKAP_SISWA, 
+            // E=?, F=KELAS_SISWA, G=WALI_KELAS, H=TEMPAT_LAHIR, I=TANGGAL_LAHIR, J=JENIS_KELAMIN, 
+            // K=FOTO_SISWA, L=TAHUN_AJARAN, M=AGAMA_SISWA
+            
+            const nisn = userData[1] || 'N/A';  // Column B (NISN)
+            const namaLengkap = userData[3] || userData[1] || 'N/A';  // Column D (NAMA_LENGKAP_SISWA)
+            
+            console.log('Student data:', userData); // Debug log
+            console.log('NISN:', nisn, 'Nama:', namaLengkap); // Debug log
+            console.log('Kelas (F):', userData[5], 'Wali Kelas (G):', userData[6], 'Tahun Ajaran (L):', userData[11], 'Agama (M):', userData[12], 'Foto (K):', userData[10]); // Debug log
+            
+            document.getElementById('studentName').textContent = namaLengkap;
+            document.getElementById('studentNISN').textContent = nisn;
+            document.getElementById('studentFullName').textContent = namaLengkap;
+            document.getElementById('studentClass').textContent = userData[5] || 'N/A';  // Column F (KELAS_SISWA) - F2 = index 5
+            document.getElementById('studentWaliKelas').textContent = userData[6] || 'N/A';  // Column G (WALI_KELAS) - G2 = index 6
+            document.getElementById('studentTahunAjaran').textContent = userData[11] || 'N/A';  // Column L (TAHUN_AJARAN) - L2 = index 11
+            document.getElementById('studentAgama').textContent = userData[12] || 'N/A';  // Column M (AGAMA_SISWA) - M2 = index 12
+            
+            // Set student photo - FOTO_SISWA is in column K (K2 = index 10)
+            const photoUrl = userData[10];
+            console.log('Student photo URL:', photoUrl); // Debug log
+            
+            const photoImg = document.getElementById('studentPhoto');
+            if (photoUrl && photoUrl.trim() && photoUrl !== 'N/A') {
+                console.log('Setting student photo from URL:', photoUrl);
+                
+                photoImg.onload = function() {
+                    console.log('Student photo loaded successfully');
+                };
+                
+                photoImg.onerror = function() {
+                    console.log('Failed to load student photo, using placeholder');
+                    // Set placeholder if photo fails to load
+                    photoImg.src = 'data:image/svg+xml;base64,' + btoa(`
+                        <svg width="160" height="192" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="160" height="192" fill="#FFF8DC" stroke="#8B4513" stroke-width="2"/>
+                            <circle cx="80" cy="70" r="25" fill="#8B4513" opacity="0.3"/>
+                            <rect x="55" y="110" width="50" height="60" rx="25" fill="#8B4513" opacity="0.3"/>
+                            <text x="80" y="180" text-anchor="middle" fill="#8B4513" font-size="10" font-family="Arial">
+                                Foto Siswa
+                            </text>
+                        </svg>
+                    `);
+                };
+                
+                photoImg.src = photoUrl;
+            } else {
+                console.log('No valid photo URL, using placeholder');
+                // Set placeholder if no photo URL
+                photoImg.src = 'data:image/svg+xml;base64,' + btoa(`
+                    <svg width="160" height="192" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="160" height="192" fill="#FFF8DC" stroke="#8B4513" stroke-width="2"/>
+                        <circle cx="80" cy="70" r="25" fill="#8B4513" opacity="0.3"/>
+                        <rect x="55" y="110" width="50" height="60" rx="25" fill="#8B4513" opacity="0.3"/>
+                        <text x="80" y="180" text-anchor="middle" fill="#8B4513" font-size="10" font-family="Arial">
+                            Foto Siswa
+                        </text>
+                    </svg>
+                `);
+            }
+            
+            // Generate QR Code from NISN data (Column B) - ENHANCED VERSION
+            console.log('=== QR CODE GENERATION START ===');
+            console.log('NISN for QR Code:', nisn);
+            console.log('NISN type:', typeof nisn);
+            console.log('NISN length:', nisn ? nisn.length : 'null');
+            
+            // Generate QR Code immediately without timeout
+            generateQRCodeFromNISN(nisn);
+        }
+        
+        // Logout function
+        function logout() {
+            currentUser = null;
+            document.getElementById('studentDashboard').style.display = 'none';
+            document.getElementById('teacherDashboard').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'flex'; // Changed from 'block' to 'flex'
+            document.getElementById('loginForm').reset();
+            document.getElementById('errorMessage').classList.add('hidden');
+            
+            // Reset radio button styles
+            document.querySelectorAll('input[name="role"]').forEach(radio => {
+                radio.checked = false;
+                updateRadioStyle(radio);
+            });
+            
+            // Force scroll to top and ensure centering
+            window.scrollTo(0, 0);
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Update radio button style
+        function updateRadioStyle(radio) {
+            const label = radio.closest('label');
+            const div = label.querySelector('div');
+            if (radio.checked) {
+                div.style.background = 'linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(247, 147, 30, 0.2))';
+                div.style.borderColor = '#FF6B35';
+                div.style.transform = 'scale(1.05)';
+            } else {
+                div.style.background = 'rgba(255, 248, 220, 0.8)';
+                div.style.borderColor = '#8B4513';
+                div.style.transform = 'scale(1)';
+            }
+        }
+        
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const role = document.querySelector('input[name="role"]:checked')?.value;
+            
+            if (!role) {
+                showError('Silakan pilih role terlebih dahulu!');
+                return;
+            }
+            
+            console.log('Login attempt:', { username, password, role }); // Debug log
+            
+            // Show loading
+            document.getElementById('loginText').style.display = 'none';
+            document.getElementById('loginLoading').style.display = 'inline-block';
+            document.getElementById('loginBtn').disabled = true;
+            
+            const success = await login(username, password, role);
+            
+            // Hide loading
+            document.getElementById('loginText').style.display = 'inline';
+            document.getElementById('loginLoading').style.display = 'none';
+            document.getElementById('loginBtn').disabled = false;
+            
+            if (!success) {
+                showError('NISN atau password salah! Silakan coba lagi.');
+            }
+        });
+        
+        // Show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            errorText.textContent = message;
+            errorDiv.classList.remove('hidden');
+            setTimeout(() => {
+                errorDiv.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Radio button styling
+        document.querySelectorAll('input[name="role"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('input[name="role"]').forEach(r => {
+                    updateRadioStyle(r);
+                });
+            });
+        });
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSchoolInfo();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96bffa8d342cfde7',t:'MTc1NDY2NjIyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
